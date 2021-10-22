@@ -1,5 +1,6 @@
+<?php
 $baseDatos = "bowgqfdjymwtjrai1vil";
-
+$servidor = "bowgqfdjymwtjrai1vil-mysql.services.clever-cloud.com";
 $usuarioBd = "uqqpgtuobtnpuiii";
 $passwordBd = "zqbdbi78oaeWDbHAHcHs";
 
