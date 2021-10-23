@@ -21,8 +21,8 @@ body {
 #login-box {
   position: relative;
   box-sizing: border-box;
-  width: 1700px;
-  height: 790px;
+  width: 1366px;
+  height: 768px;
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -32,7 +32,7 @@ body {
   position: absolute;
   margin: 3% auto;
   top: 0;
- left: 0;
+ right: 300px;
   box-sizing: border-box;
   padding: 40px;
   width: 300px;
@@ -100,6 +100,9 @@ input[type="submit"]:active {
 
 
 
+
+
+ 
 
 
  
