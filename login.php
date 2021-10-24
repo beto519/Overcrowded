@@ -1,66 +1,188 @@
+<?php
+// Inicializamos la sesion o la retomamos
+/*
+PENDIENTE
+if(!isset($_SESSION)) {
+  session_start();
+  // Protegemos el documento para que solamente sea visible cuando NO HAS INICIADO sesión
+  if(isset($_SESSION['id'])) header('Location: index.php');
+
+}*/
+
+// Incluimos la conexión a la base de datos
+include("conexionBD/conexion.php");
+
+
+// Evaluamos si el formulario ha sido enviado
+if(isset($_POST['login_sent'])) {
+	
+	
+  // Validamos si las cajas están vacias
+  foreach ($_POST as $calzon => $caca) {
+	if($caca == "") $error[] = "La caja $calzon es obligatoria";
+  }
+
+
+
+  // Armamos el query para verificar el email y el password en la base de datos
+  $queryLogin = sprintf("SELECT idUsuario, nombre, apellido,telefono,correo, usuario FROM usuarios WHERE usuario = '%s' AND contraseña = '%s'",
+	  mysqli_real_escape_string($connLocalhost, trim($_POST['usuario'])),
+	  mysqli_real_escape_string($connLocalhost, trim($_POST['pass']))
+  );
+
+  // Ejecutamos el query
+  $resQueryLogin = mysqli_query($connLocalhost, $queryLogin) or trigger_error("El query de login de usuario falló");
+
+  // Determinamos si el login es valido (email y password sean coincidentes)
+  // Contamos el recordset (el resultado esperado para un login valido es 1)
+  if(mysqli_num_rows($resQueryLogin)) {
+	// Hacemos un fetch del recordset
+	$userData = mysqli_fetch_assoc($resQueryLogin);
+
+	// Definimos variables de sesion en $_SESSION
+	$_SESSION['id'] = $userData['idUsuario'];
+	$_SESSION['nombres'] = $userData['nombre'];
+	$_SESSION['apellidos'] = $userData['apellido'];
+    $_SESSION['telefono'] = $userData['telefono'];
+	$_SESSION['correo'] = $userData['correo'];
+	$_SESSION['usuario'] = $userData['usuario'];
+
+
+
+    header('Location: index.php');
+    
+
+
+  }
+  else {
+	$error = "Login failed";
+  }
+
+  
+}
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overcrowded</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.jsjn">
-</head>
-<body>
 
-<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-    <div class="card card0 border-0">
-        <div class="row d-flex">
-            <div class="col-lg-6">
-                <div class="card1 pb-5">
-                    <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
-                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+<head>
+    <title>Iniciar Sesion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/style_login.css">
+    <!--===============================================================================================-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color: #666666;">
+
+    <div>
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form" action="login.php" method="post">
+                    <span class="login100-form-title p-b-43">
+
+                        <span class="text-primary">Over</span> Crowded
+                    </span>
+
+
+                    <div class="wrap-input100 validate-input" data-validate="El usuario es requerido">
+                        <input class="input100" type="text" name="usuario">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Usuario</span>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input" data-validate="La contraseña es requerida">
+                        <input class="input100" type="password" name="pass">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Contraseña</span>
+                    </div>
+
+
+
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" name="login_sent">
+                            Iniciar Sesion
+                        </button>
+
+
+                        <div class="text-info mt-5">
+                        <a href="Registrar.php" class="h5">¿Aún no tienes cuenta?</a>
+
+                        </div>
+                    </div>
+
+
+                    
+
+                </form>
+
+                <div class="login100-more" style="background-image: url('img/fondoLogin.jpeg');">
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card2 card border-0 px-4 py-5">
-                    <div class="row mb-4 px-3">
-                        <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
-                        <div class="facebook text-center mr-3">
-                            <div class="fa fa-facebook"></div>
-                        </div>
-                        <div class="twitter text-center mr-3">
-                            <div class="fa fa-twitter"></div>
-                        </div>
-                        <div class="linkedin text-center mr-3">
-                            <div class="fa fa-linkedin"></div>
-                        </div>
-                    </div>
-                    <div class="row px-3 mb-4">
-                        <div class="line"></div> <small class="or text-center">Or</small>
-                        <div class="line"></div>
-                    </div>
-                    <div class="row px-3"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Address</h6>
-                        </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> </div>
-                    <div class="row px-3"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Password</h6>
-                        </label> <input type="password" name="password" placeholder="Enter password"> </div>
-                    <div class="row px-3 mb-4">
-                        <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Remember me</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
-                    </div>
-                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Login</button> </div>
-                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-blue py-4">
-            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
-                <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
             </div>
         </div>
     </div>
-</div>
-    
+
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
 </body>
+
 </html>

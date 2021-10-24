@@ -37,7 +37,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="Style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style_registrar.css" rel="stylesheet" type="text/css" />
     <title>Registrar</title>
 </head>
 
@@ -46,7 +46,7 @@
 </div>
   <form action="Registrar.php" method="post">
   <div class="right">
-    <h1>Registrar</h1>
+
     <input type="text" name="username" placeholder="Usuario" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>"/>
     <input type="text" name="name" placeholder="Nombre" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"/>
     <input type="text" name="last_name" placeholder="Apellido" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>"/>  
@@ -55,7 +55,7 @@
     <input type="password" name="password" placeholder="Contraseña" value="<?php if(isset($_POST['password'])) echo $_POST['password']; ?>"/>
   
     
-    <input type="submit" name="registrar_send" value="Sign me up" />
+    <input type="submit" name="registrar_send" value="Registrarse" />
   </div>
   </form>
 </div>
