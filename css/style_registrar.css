@@ -1,118 +1,119 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
-*:focus {
-  outline: none;
-}
-
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
   margin: 0;
   padding: 0;
-  background: #DDD;
-  font-size: 14px;
-  color: #222;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  
-}
-#cuadro{
-  position: absolute;
-  width: 1366px;
-  height: 70px;
-  background: #890A3D;
-}
-#login-box {
-  position: relative;
   box-sizing: border-box;
-  width: 1366px;
-  height: 768px;
-  background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  font-family: 'Poppins',sans-serif;
 }
-
-.right { 
-  position: absolute;
-  margin: 3% auto;
-  top: 0;
- right: 300px;
-  box-sizing: border-box;
-  padding: 40px;
-  width: 300px;
-  height: 400px;
-}
-
-h1 {
-  margin: 0 0 20px 0;
-  font-weight: 400;
-  font-size: 30px;
-}
-
-input[type="text"],
-input[type="password"] {
-  display: block;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 4px;
-  width: 320px;
-  height: 52px;
-  border: none;
-  border-bottom: 1px solid #AAA;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  transition: 0.2s ease;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-bottom: 2px solid #890A3D;
-  color: #000000;
-  transition: 0.2s ease;
-}
-
-input[type="submit"] {
-  margin-top: 15px;
-  width: 350px;
-  height: 45px;
-  background: #890A3D;
-  border: none;
-  border-radius: 2px;
-  color: #FFF;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: 0.1s ease;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover,
-input[type="submit"]:focus {
-  opacity: 0.8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transition: 0.1s ease;
-}
-
-input[type="submit"]:active {
-  opacity: 1;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  transition: 0.1s ease;
-}
-/*Formulario*/
-.header {
-  color: #36A0FF;
-  font-size: 27px;
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
+  background: #890A3D;
+}
+.container_1{
+  margin: 3% auto;
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.container_1 .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container_1 .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #890A3D, #890A3D);
+}
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 210%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #890A3D;
 }
 
-.bigicon {
-  font-size: 35px;
-  color: #36A0FF;
+ form .button{
+   height: 45px;
+   margin: 35px 0
+ }
+ form .button input{
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   color: #111;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+  justify-content: center;
+   background: #890A3D;
+ }
+ form .button input:hover{
+  /* transform: scale(0.99); */
+  background:  #890A3D;
+  }
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
 }
 
-
-
-
-
- 
 
 
  

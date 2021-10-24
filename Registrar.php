@@ -40,24 +40,44 @@
     <link href="css/style_registrar.css" rel="stylesheet" type="text/css" />
     <title>Registrar</title>
 </head>
-
-<div id="login-box">
-<div id="cuadro" >
-</div>
-  <form action="Registrar.php" method="post">
-  <div class="right">
-
-    <input type="text" name="username" placeholder="Usuario" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>"/>
-    <input type="text" name="name" placeholder="Nombre" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"/>
-    <input type="text" name="last_name" placeholder="Apellido" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>"/>  
-    <input type="text" name="email" placeholder="Correo" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"/>
-    <input type="text" name="phone" placeholder="Telefono" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>"/>  
-    <input type="password" name="password" placeholder="Contraseña" value="<?php if(isset($_POST['password'])) echo $_POST['password']; ?>"/>
-  
-    
-    <input type="submit" name="registrar_send" value="Registrarse" />
+<body>
+<form class="container_1" action="Registrar.php" method="post">
+  <div>
+    <div class="title">Registrar</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Usuario</span>
+            <input type="text" name="username" placeholder="Ingresa tu usuario" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Nombre</span>
+            <input type="text" name="name" placeholder="Ingresa tu nombre" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Apellidos</span>
+            <input type="text" name="last_name" placeholder="Ingresa tus apellidos"  value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Correo Electronico</span>
+            <input type="text" name="email" placeholder="Ingresa tu Correo electronico" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Telefono</span>
+            <input type="text" name="phone" placeholder="Ingrese su telefono"  value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>"/>
+          </div>
+          <div class="input-box">
+            <span class="details">Contraseña</span>
+            <input type="password" name="password" placeholder="Ingrese su contraseña" value="<?php if(isset($_POST['password'])) echo $_POST['password']; ?>"/>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" name="registrar_send" value="Registrar"/>
+        </div>
+    </div>
   </div>
   </form>
-</div>
+</body>
 </html>
 
