@@ -1,29 +1,9 @@
 <?php
-  include("conexion.php");
+  include("conexionBD/conexion.php");
 
 
   // Lo primero que haremos será validar si el formulario ha sido enviado
   if(isset($_POST['registrar_send'])) {
-    $error[] = "El correo proporcionado ya está siendo utilizado";
-
-      // Validamos si las cajas están vacias
-  //
- 
-
-    // Validación de email
-    // Preparamos la consulta para determinar si el email porporcionado ya existe en la BD
-    $queryCheckEmail = sprintf("SELECT idusuario FROM usuarios WHERE correo = '%s'",
-      mysqli_real_escape_string($connLocalhost, trim($_POST['email']))
-    );
-
-    // Ejecutamos el query 
-    $resQueryCheckEmail = mysqli_query($connLocalhost, $queryCheckEmail) or trigger_error("El query de validación de email falló"); // Record set o result set siempre y cuando el query sea de tipo SELECT
-
-    // Contar el recordset para determinar si se encontró el correo en la BD
-    if(mysqli_num_rows($resQueryCheckEmail)) {
-      $error[] = "El correo proporcionado ya está siendo utilizado";
-      
-    }
 
     // Procedemos a añadir a la base de datos al usuario SOLO SI NO HAY ERRORES
     if(!isset($error)) {
@@ -51,9 +31,6 @@
   }
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -63,22 +40,24 @@
     <link href="Style.css" rel="stylesheet" type="text/css" />
     <title>Registrar</title>
 </head>
+
 <div id="login-box">
-<div id="cuadro">
+<div id="cuadro" >
 </div>
+  <form action="Registrar.php" method="post">
   <div class="right">
-    <h1>Sign up</h1>
-    <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="name" placeholder="Name" />
-    <input type="text" name="last_name" placeholder="Last name" />  
-    <input type="text" name="email" placeholder="E-mail" />
-    <input type="text" name="phone" placeholder="Phone" />  
-    <input type="password" name="password" placeholder="Password" />
+    <h1>Registrar</h1>
+    <input type="text" name="username" placeholder="Usuario" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>"/>
+    <input type="text" name="name" placeholder="Nombre" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"/>
+    <input type="text" name="last_name" placeholder="Apellido" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>"/>  
+    <input type="text" name="email" placeholder="Correo" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"/>
+    <input type="text" name="phone" placeholder="Telefono" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>"/>  
+    <input type="password" name="password" placeholder="Contraseña" value="<?php if(isset($_POST['password'])) echo $_POST['password']; ?>"/>
   
     
     <input type="submit" name="registrar_send" value="Sign me up" />
   </div>
- 
+  </form>
 </div>
 </html>
 
