@@ -22,7 +22,7 @@
       mysqli_query($connLocalhost, $queryInsertUser) or trigger_error("El query de inserción de usuarios falló");
 
       // Redireccionamos al usuario al Panel de Control
-      header("Location:index.php?insertUser=true");
+      header("Location:login.php?insertUser=true");
     }
 
   }
@@ -42,7 +42,6 @@
 </head>
 <body>
 <form class="container_1" action="Registrar.php" method="post">
-  <div>
     <div class="title">Registrar</div>
     <div class="content">
       <form action="#">
@@ -75,7 +74,9 @@
         <div class="button">
           <input type="submit" name="registrar_send" value="Registrar"/>
         </div>
-    </div>
+        <div class="text-info mt-5">
+        <a href="login.php" class="h5">¿Ya tienes una cuenta?</a>
+        </div>
   </div>
   </form>
 </body>

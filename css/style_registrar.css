@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -112,6 +113,31 @@ form .user-details .input-box{
   .container .content .category{
     flex-direction: column;
   }
+}
+a {
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+  color: #440f0f;
+}
+
+
+h5 {
+	margin: 0px;
+  
 }
 
 
