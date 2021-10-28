@@ -118,14 +118,14 @@ if(isset($_POST['login_sent'])) {
                     <div class="wrap-input100 validate-input" data-validate="El usuario es requerido">
                         <input class="input100" type="text" name="usuario">
                         <span class="focus-input100"></span>
-                        <span class="label-input100">Usuario</span>
+                        <span class="label-input100"></span>
                     </div>
 
 
                     <div class="wrap-input100 validate-input" data-validate="La contraseña es requerida">
                         <input class="input100" type="password" name="pass">
                         <span class="focus-input100"></span>
-                        <span class="label-input100">Contraseña</span>
+                        <span class="label-input100"></span>
                     </div>
 
 
