@@ -4,63 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/formulario.css">
+   <script src="js/formulario.js"></script>
+    <title>Formulario</title>
 </head>
 <body>
+
+
     
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="well well-sm">
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <legend class="text-center header">Reporte</legend>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+<div id='browser'>
+  <div id='browser-bar'>
+   
+    <p>Reportes</p>
+   
+  </div>
+  <div id='content'>
+    <div id='left'>
+      <div id='map'>
+        <p>Reportes Guaymas</p>
+        <div class='map-locator'>
+          <div class='tooltip'>
+            <ul>
+              <li>
+                <span class='entypo-location'></span>
+                <span class='selectedLocation'>20</span>
+              </li>
+              <li>
+                <span class='entypo-mail'></span>
+                <a href='#'>Basura</a>
+              </li>
+              
+            </ul>
+          </div>
         </div>
+        <div class='zoom'></div>
+      </div>
+    
     </div>
+    <div id='right'>
+   
+     
+      <form>
+        <p>Genera tu reporte</p>
+        <input placeholder='Concepto' type='text'>
+        <textarea placeholder='Descripcion' rows='10'></textarea>
+      <a href="index.php">Menu</a>
+        <input placeholder='Send' type='submit'>
+      </form>
+     
+    </div>
+  </div>
 </div>
+
 </body>
 </html>
