@@ -13,6 +13,7 @@ body{
   align-items: center;
   padding: 10px;
   background: #890A3D;
+  
 }
 .container_1{
   margin: 3% auto;
@@ -114,17 +115,17 @@ form .user-details .input-box{
     flex-direction: column;
   }
 }
-a {
+
+.text-info{
+  padding: 0px 80px; 
+}
+.a {
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-
-  align-items: center;
 }
 
 a:focus {

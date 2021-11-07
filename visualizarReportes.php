@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/mapa.css" rel="stylesheet"/>
-    <title>mapa</title>
+    <title>Mis reportes</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="assets/css/mapa.css">
+    <link rel="stylesheet" href="css/reportes.css">
 </head>
 <body>
 <div class="header-blue">
@@ -45,9 +45,57 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>  
-    <div class="map-responsive_1">
-   <iframe src="https://maps.google.com/maps?q=guaymas=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-    style="border:0" ></iframe>
-  </div>
+    <div class="movimiento">
+    <table class="table">
+  <thead class="columna">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Concepto</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">fecha</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Contador</th>
+      <th scope="col">Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+    
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+      
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+    <div class="boton_reporte">
+    <input class="diseño_boton" type="submit" name="reporte" value="Nuevo Reporte+">
+    </div>
+    
 </body>
 </html>
