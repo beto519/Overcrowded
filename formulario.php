@@ -11,7 +11,7 @@
       $queryInsertUser = sprintf("INSERT INTO reportes (concepto,descripcion,Categoria) VALUES ('%s', '%s', '%s')",
           mysqli_real_escape_string($connLocalhost, trim($_POST['concept'])),
           mysqli_real_escape_string($connLocalhost, trim($_POST['descripcion'])),
-          mysqli_real_escape_string($connLocalhost, trim($_POST['choice']))
+          mysqli_real_escape_string($connLocalhost, trim($_POST['categoria']))
 
       );
 
@@ -55,25 +55,7 @@
 
   <div class='field'>
     <label class='label'>Problema?</label>
-    <ul class='checkboxes'>
-      <li class='checkbox'>
-        <input class='checkbox-input' id='choice-0' name='choice' type='checkbox' value='<?php if(isset($_POST['choice'])) echo $_POST['choice']; ?>'>
-        <label class='checkbox-label' for='choice-0'>Drenaje</label>
-      </li>
-      <li class='checkbox'>
-        <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='<?php if(isset($_POST['choice'])) echo $_POST['choice']; ?>'>
-        <label class='checkbox-label' for='choice-1'>Maltrato</label>
-      </li>
-      <li class='checkbox'>
-        <input class='checkbox-input' id='choice-2' name='choice' type='checkbox' value='<?php if(isset($_POST['choice'])) echo $_POST['choice']; ?>'>
-        <label class='checkbox-label' for='choice-2'>Agua derramada</label>
-      </li>
-      <li class='checkbox'>
-        <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='<?php if(isset($_POST['choice'])) echo $_POST['choice']; ?>'>
-        <label class='checkbox-label' for='choice-3'>Violencia</label>
-      </li>
-   
-    </ul>
+    <input class='text-input' id='categoria' name='categoria' required type='text' value="<?php if(isset($_POST['categoria'])) echo $_POST['categoria']; ?>">
   </div>
 
   <p class='field'>
