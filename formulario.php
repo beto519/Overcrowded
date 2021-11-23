@@ -44,7 +44,7 @@
 <body>
   
 
-<form action='' class='form'>
+<form action="formulario.php" method="post"class='form'>
   <p class='field required'>
     <label class='label required' for='name'>Concepto</label>
     <input class='text-input' id='concept' name='concept' required type='text' value="<?php if(isset($_POST['concept'])) echo $_POST['concept']; ?>">
