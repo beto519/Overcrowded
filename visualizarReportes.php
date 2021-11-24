@@ -1,3 +1,9 @@
+<?php
+  
+  include("conexionBD/conexion.php");
+  $reportes="SELECT * FROM reportes";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,44 +64,24 @@
       <th scope="col">Categoria</th>
     </tr>
   </thead>
+
+  <?php $resultado = mysqli_query($connLocalhost, $reportes);
+  while($row=mysqli_fetch_assoc($resultado)){?>
+
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-     
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-    
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      
-    </tr>
-    
+      <th><?php echo $row['idreportes'];?></th>
+      <td><?php echo $row['concepto'];?></td>
+      <td><?php echo $row['descripcion'];?></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><?php echo $row['Categoria'];?></td>
+     </tr>
   </tbody>
+  <?php }?>
 </table>
-</div>
-    <div class="boton_reporte">
-    <input class="diseño_boton" type="submit" name="reporte" value="Nuevo Reporte+">
-    </div>
+
     
 </body>
 </html>
