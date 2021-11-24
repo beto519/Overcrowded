@@ -30,6 +30,9 @@
           map: map,
 	  title: 'Mi ubicacion'
         });
+     
+        
+      
       }
 
 	</script>
