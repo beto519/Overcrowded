@@ -18,7 +18,19 @@
       // Ejecutamos el query en la BD
       mysqli_query($connLocalhost, $queryInsertUser) or trigger_error("El query de inserción de usuarios falló");
 
-   
+
+      $queryInsertUser = sprintf("INSERT INTO marcadores (latitud,longitud) VALUES ('%s', '%s')",
+
+      mysqli_real_escape_string($connLocalhost, trim($_POST['latitud'])),
+      mysqli_real_escape_string($connLocalhost, trim($_POST['longitud']))
+
+  );
+
+  // Ejecutamos el query en la BD
+  mysqli_query($connLocalhost, $queryInsertUser) or trigger_error("El query de inserción de usuarios falló");
+
+
+      header("Location:formulario.php");
      
     }
 
@@ -64,8 +76,8 @@
   </p>
   <p class='field half'>
     <label class='label' for='select'>Posicion</label>
-    <input class='text-input' id='latitud' name='latitud' required type='text' value='latitud'>
-    <input class='text-input' id='longitud' name='longitud' required type='text' value='longitud'>
+    <input class='text-input' id='latitud' name='latitud' required type='text' value='<?php if(isset($_POST['latitud'])) echo $_POST['latitud']; ?>'>
+    <input class='text-input' id='longitud' name='longitud' required type='text' value='<?php if(isset($_POST['longitud'])) echo $_POST['longitud']; ?>'>
   </p>
   <p class='field half'>
     <input class='button' id="send"  name="send" type='submit' value='Enviar'>
