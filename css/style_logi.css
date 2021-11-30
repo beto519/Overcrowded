@@ -302,7 +302,7 @@ iframe {
 
   font-family: Montserrat-Regular;
   font-size: 18px;
-  color: #7c6c6c;
+  color: #817777;
   line-height: 1.2;
 
   display: block;
@@ -311,7 +311,7 @@ iframe {
   width: 100%;
   padding-left: 24px;
   left: 0;
-  top: 30px;
+  top: 10px;
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;

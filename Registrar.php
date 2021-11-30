@@ -1,5 +1,16 @@
 <?php
-  include("conexionBD/conexion.php");
+  // Inicializamos la sesion o la retomamos
+
+
+if(!isset($_SESSION)) {
+  session_start();
+  // Protegemos el documento para que solamente sea visible cuando NO HAS INICIADO sesión
+  if(isset($_SESSION['id'])) header('Location: index.php');
+
+}
+
+// Incluimos la conexión a la base de datos
+include("conexionBD/conexion.php");
 
 
   // Lo primero que haremos será validar si el formulario ha sido enviado

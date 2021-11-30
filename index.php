@@ -1,5 +1,21 @@
 <?php
 include("conexionBD/conexion.php");
+
+
+  // Inicializamos la sesion o la retomamos
+  if(!isset($_SESSION)) {
+    session_start();
+  }
+  if(!isset($_SESSION['id'])) header('Location: login.php');
+
+  $query_userData = sprintf("SELECT * FROM usuarios WHERE idusuario =%d",
+  mysqli_real_escape_string($connLocalhost, trim($_SESSION['id']))
+  );
+  
+  $resQueryUserData = mysqli_query($connLocalhost, $query_userData) or trigger_error("El query para obtener los detalles del usuario loggeado falló");
+  
+  $userData= mysqli_fetch_assoc($resQueryUserData);
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +56,13 @@ include("conexionBD/conexion.php");
                             <li class="nav-item" role="presentation"><a class="nav-link active" href="mensajes.php">Mensajes</a></li>
                         </ul>
                         <form class="form-inline mr-auto" target="_self">
+                        <?php
 
-                        </form><span class="navbar-text"> <a class="btn btn-light action-button" role="button" href="login.php">Cerrar sesión</a></div>
+               
+
+
+?>
+                        </form><span class="navbar-text"> <a class="btn btn-light action-button" role="button" href="includes/cerrarSesion.php">Cerrar sesión</a></div>
                 </div>
             </nav>
             <div class="container hero">
