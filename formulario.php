@@ -49,7 +49,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/formulario.css">
+  <link rel="stylesheet" href="css/formularios.css">
 
   <title>Document</title>
 </head>
@@ -76,13 +76,14 @@
   </p>
   <p class='field half'>
     <label class='label' for='select'>Posicion</label>
-    <input class='text-input' id='latitud' name='latitud' required type='text' value='<?php if(isset($_POST['latitud'])) echo $_POST['latitud']; ?>'>
-    <input class='text-input' id='longitud' name='longitud' required type='text' value='<?php if(isset($_POST['longitud'])) echo $_POST['longitud']; ?>'>
-  </p>
+ 
+    <p class="ocultar" id="latitud"></p>
+  <p class="ocultar" id="longitud"></p> </p>
   <p class='field half'>
     <input class='button' id="send"  name="send" type='submit' value='Enviar'>
   </p>
 </form>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ const funcionInit = () => {
 		const coordenadas = ubicacion.coords;
 		$latitud.innerText = coordenadas.latitude;
 		$longitud.innerText = coordenadas.longitude;
-		$enlace.href = `https://www.google.com/maps/@${coordenadas.latitude},${coordenadas.longitude},20z`;
+		
 	}
 	const onErrorDeUbicacion = err => {
 
