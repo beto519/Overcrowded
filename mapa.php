@@ -1,40 +1,41 @@
+<!doctype html>
+<html lang="es">
+<!--
+  Plantilla inicial de Bootstrap 4
+  @author parzibyte
+  Visita: parzibyte.me/blog
+-->
 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Acceder a la ubicación del dispositivo con JavaScript">
+	<meta name="author" content="Parzibyte">
+	<title>Acceder a la ubicación del dispositivo con JavaScript</title>
+	<!-- Cargar el CSS de Boostrap-->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	 crossorigin="anonymous">
+</head>
 
-
-<!DOCTYPE html>
-<html>
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0">
-	<link rel="stylesheet" href="css/mapa.css">
-    <title>Maps JavaScript API</title>
-
- 
-</head>  
-	<body>
-	<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqVwIR2LNGqiYsdV-rVNB5Kh3lM0dWYAM&callback=initMap">
-    </script>
-		<div id ="map"> </div> 
-	<script>
-      var map;
-      function initMap() {
+<body>
+	<!-- Termina la definición del menú -->
+	<main role="main" class="container">
+		<div class="row">
+			<!-- Aquí pon las col-x necesarias, comienza tu contenido, etcétera -->
+			<div class="col-12">
 		
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 28.006381, lng: -110.921847},
-          zoom: 13
-        });
-
-		var marker = new google.maps.Marker({
-          position:  {lat: 28.006381, lng: -110.921847},
-          map: map,
-	  title: 'Mi ubicacion'
-        });
-     
-        
-      
-      }
-
+		
+				<br>
+				<strong>Latitud: </strong> <p id="latitud"></p>
+				<br>
+				<strong>Longitud: </strong> <p id="longitud"></p>
+				<br>
+				<a target="_blank" id="enlace" href="#">Abrir en Google Maps</a>
+			</div>
+		</div>
+	</main>
+	<script src="script.js">
 	</script>
-	</body> 
+</body>
+
 </html>

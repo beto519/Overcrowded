@@ -1,13 +1,13 @@
 <?php
 // Inicializamos la sesion o la retomamos
-/*
-PENDIENTE
+
+
 if(!isset($_SESSION)) {
   session_start();
   // Protegemos el documento para que solamente sea visible cuando NO HAS INICIADO sesión
   if(isset($_SESSION['id'])) header('Location: index.php');
 
-}*/
+}
 
 // Incluimos la conexión a la base de datos
 include("conexionBD/conexion.php");
@@ -20,8 +20,10 @@ if(isset($_POST['login_sent'])) {
   // Validamos si las cajas están vacias
   foreach ($_POST as $calzon => $caca) {
 	if($caca == "") $error[] = "La caja $calzon es obligatoria";
-  }
 
+  }
+  echo'<script type="text/javascript">
+  alert("Ingrese todos los datos");</script>';
 
 
   // Armamos el query para verificar el email y el password en la base de datos
@@ -95,7 +97,7 @@ if(isset($_POST['login_sent'])) {
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/style_login.css">
+    <link rel="stylesheet" type="text/css" href="css/style_logi.css">
     <!--===============================================================================================-->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -118,21 +120,21 @@ if(isset($_POST['login_sent'])) {
                     <div class="wrap-input100 validate-input" data-validate="El usuario es requerido">
                         <input class="input100" type="text" name="usuario">
                         <span class="focus-input100"></span>
-                        <span class="label-input100"></span>
+                        <span class="label-input100">Usuario</span>
                     </div>
 
 
                     <div class="wrap-input100 validate-input" data-validate="La contraseña es requerida">
                         <input class="input100" type="password" name="pass">
                         <span class="focus-input100"></span>
-                        <span class="label-input100"></span>
+                        <span class="label-input100">Contraseña</span>
                     </div>
 
 
 
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" name="login_sent">
+                        <button class="login100-form-btn" id="login_sent" name="login_sent">
                             Iniciar Sesion
                         </button>
 
