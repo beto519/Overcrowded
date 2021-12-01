@@ -220,15 +220,4 @@ header-blue {
  background-color: #9c9c9c;
  border-radius: 2px;
 }
-.boton_reporte{
-  margin-top: -245px;
-  z-index: 3;
-
-}
-.diseño_boton{
-  background-color: #890A3D;
-color: #fff;
-width: 250px;
-height: 30px;
-}
 
