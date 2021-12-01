@@ -31,7 +31,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
 	<link rel="stylesheet" href="css/mapa.css">
-    <title>Maps JavaScript API</title> 
+    <title>Mapa</title> 
 	<head>
 
 		<div id="map" ></div>

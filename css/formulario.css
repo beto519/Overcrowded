@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #890A3D;
   font-family: "Titillium Web", sans-serif;
 }
 @media screen and (min-width: 40em) {
@@ -49,12 +49,12 @@ body {
   line-height: normal;
   width: 100%;
   box-sizing: border-box;
-  background: #222222;
-  color: white;
+  background: #f0eaea;
+  color: rgb(2, 2, 2);
   position: relative;
 }
 .customSelect:placeholder, .form .select:placeholder, .form .textarea:placeholder, .form .text-input:placeholder, .form .option-input + label:placeholder, .form .checkbox-input + label:placeholder {
-  color: white;
+  color: rgb(2, 2, 2);
 }
 .customSelect:-webkit-autofill, .form .select:-webkit-autofill, .form .textarea:-webkit-autofill, .form .text-input:-webkit-autofill, .form .option-input + label:-webkit-autofill, .form .checkbox-input + label:-webkit-autofill {
   box-shadow: 0 0 0px 1000px #111111 inset;
@@ -69,7 +69,7 @@ body {
   background-repeat: repeat;
 }
 .form:not(.has-magic-focus) .customSelect.customSelectFocus, .form:not(.has-magic-focus) .customSelect:active, .form:not(.has-magic-focus) .select:active, .form:not(.has-magic-focus) .textarea:active, .form:not(.has-magic-focus) .text-input:active, .form:not(.has-magic-focus) .option-input + label:active, .form:not(.has-magic-focus) .checkbox-input + label:active, .form:not(.has-magic-focus) .customSelect:focus, .form:not(.has-magic-focus) .select:focus, .form:not(.has-magic-focus) .textarea:focus, .form:not(.has-magic-focus) .text-input:focus, .form:not(.has-magic-focus) .option-input + label:focus, .form:not(.has-magic-focus) .checkbox-input + label:focus {
-  background: #4E4E4E;
+  background: #e4d7d7;
 }
 
 .form .message {

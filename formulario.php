@@ -11,7 +11,7 @@
       $queryInsertUser = sprintf("INSERT INTO reportes (concepto,descripcion,Categoria) VALUES ('%s', '%s', '%s')",
           mysqli_real_escape_string($connLocalhost, trim($_POST['concept'])),
           mysqli_real_escape_string($connLocalhost, trim($_POST['descripcion'])),
-          mysqli_real_escape_string($connLocalhost, trim($_POST['categoria']))
+          mysqli_real_escape_string($connLocalhost, trim($_POST['select']))
 
       );
 
@@ -49,7 +49,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/formularios.css">
+  <link rel="stylesheet" href="css/formulario.css">
 
   <title>Document</title>
 </head>
@@ -66,8 +66,17 @@
 
 
   <div class='field'>
-    <label class='label'>Problema?</label>
-    <input class='text-input' id='categoria' name='categoria' required type='text' value="<?php if(isset($_POST['categoria'])) echo $_POST['categoria']; ?>">
+    
+    <label class='label'>Problema</label>
+  
+  <select class='textarea' name="select">
+  <option class='textarea' value="Violencia">Violencia</option>
+  <option class='textarea' value="Maltrato" selected>Maltrato</option>
+  <option class='textarea' value="Salubridad">Salubridad</option>
+  <option class='textarea' value="Salubridad">Salud</option>
+  <option class='textarea' value="Publicos">Publicos</option>
+  <option class='textarea' value="Otros">Otros</option>
+</select> 
   </div>
 
   <p class='field'>
@@ -75,10 +84,10 @@
     <textarea class='textarea' cols='50' id='descripcion' name='descripcion' rows='4' value ="<?php if(isset($_POST['descripcion'])) echo $_POST['descripcion']; ?>"></textarea>
   </p>
   <p class='field half'>
-    <label class='label' for='select'>Posicion</label>
+    <label class='label' for='select'></label>
  
-    <p class="ocultar" id="latitud"></p>
-  <p class="ocultar" id="longitud"></p> </p>
+    <p  id="latitud" name="latitud"><?php if(isset($_POST['latitud'])) echo $_POST['latitud']; ?></p>
+  <p  id="longitud" name="name"></p> <?php if(isset($_POST['longitud'])) echo $_POST['longitud']; ?></p>
   <p class='field half'>
     <input class='button' id="send"  name="send" type='submit' value='Enviar'>
   </p>

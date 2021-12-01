@@ -30,7 +30,7 @@
                         <ul class="nav navbar-nav">
                             <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Menu</a></li>
                             <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Reportes </a>
-                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Generar reporte</a><a class="dropdown-item" role="presentation" href="visualizarReportes.php">Visualizar reportes</a></div>
+                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="formulario.php">Generar reporte</a><a class="dropdown-item" role="presentation" href="visualizarReportes.php">Visualizar reportes</a></div>
                             </li>
                             <li class="nav-item" role="presentation"><a class="nav-link active" href="mapa.php">Mapa</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link active" href="mensajes.php">Mensajes</a></li>
@@ -59,8 +59,8 @@
       <th scope="col">Concepto</th>
       <th scope="col">Descripcion</th>
       <th scope="col">fecha</th>
-      <th scope="col">Direccion</th>
-      <th scope="col">Contador</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
       <th scope="col">Categoria</th>
     </tr>
   </thead>
@@ -73,7 +73,7 @@
       <th><?php echo $row['idreportes'];?></th>
       <td><?php echo $row['concepto'];?></td>
       <td><?php echo $row['descripcion'];?></td>
-      <td></td>
+      <td><?php echo $row['fecha'];?></td>
       <td></td>
       <td></td>
       <td><?php echo $row['Categoria'];?></td>
