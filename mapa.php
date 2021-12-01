@@ -1,114 +1,67 @@
-<?
-var $latitud;
-var $longitud;
-include("conexionBD/conexion.php");
-if(isset($_POST['Generar_Reporte'])) {
-if(!isset($error)) {
-      // Preparamos la consulta para guardar el registro en la BD
-      $queryInsertUser = sprintf("INSERT INTO marcadores (latitud,longitud) VALUES ('%s', '%s')",
-          mysqli_real_escape_string($connLocalhost, trim($_POST['latitud'])),
-          mysqli_real_escape_string($connLocalhost, trim($_POST['longitud']))
+<?php
+	/* Database connection settings */
+	$host = 'bowgqfdjymwtjrai1vil-mysql.services.clever-cloud.com';
+	$user = 'uqqpgtuobtnpuiii';
+	$pass = 'zqbdbi78oaeWDbHAHcHs';
+	$db = 'bowgqfdjymwtjrai1vil';
+	$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
 
-      );
+ 	$coordinates = array();
+ 	$latitudes = array();
+ 	$longitudes = array();
 
-        // Ejecutamos el query en la BD
-        mysqli_query($connLocalhost, $queryInsertUser) or trigger_error("El query de inserción de usuarios falló");
+	// Select all the rows in the markers table
+	$query = "SELECT  `latitud`, `longitud` FROM `marcadores` ";
+	$result = $mysqli->query($query) or die('data selection for google map failed: ' . $mysqli->error);
 
-    
-   
-      }
+ 	while ($row = mysqli_fetch_array($result)) {
+
+		$latitudes[] = $row['latitud'];
+		$longitudes[] = $row['longitud'];
+		$coordinates[] = 'new google.maps.LatLng(' . $row['latitud'] .','. $row['longitud'] .'),';
+	}
+
+	//remove the comaa ',' from last coordinate
+	$lastcount = count($coordinates)-1;
+	$coordinates[$lastcount] = trim($coordinates[$lastcount], ",");	
 ?>
-<!doctype html>
-<html lang="es">
 
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+	<link rel="stylesheet" href="css/mapa.css">
+    <title>Maps JavaScript API</title> 
+	<head>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Acceder a la ubicación del dispositivo con JavaScript">
-	<meta name="author" content="Parzibyte">
-	<title>Acceder a la ubicación del dispositivo con JavaScript</title>
-  <link rel="stylesheet" href="css/mapa.css">
-	<!-- Cargar el CSS de Boostrap-->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	 crossorigin="anonymous">
-</head>
+		<div id="map" ></div>
 
-<body>
-	<!-- Termina la definición del menú -->
-	<main role="main" class="container">
-		<div class="row">
-			<!-- Aquí pon las col-x necesarias, comienza tu contenido, etcétera -->
-			<div class="col-12">
-		
-      <form  action="mapa.php" method="post">
+		<script>
+			function initMap() {
+			  var mapOptions = {
+			    zoom: 18,
+			    center: {<?php echo'lat:'. $latitudes[0] .', lng:'. $longitudes[0] ;?>}, //{lat: --- , lng: ....}
+			    mapTypeId: google.maps.MapTypeId.SATELITE
+			  };
 
-			 <p class="ocultar" id="latitud"></p>
-	
-	      <p class="ocultar" id="longitud"></p>
-		
+			  var map = new google.maps.Map(document.getElementById('map'),mapOptions);
+
+			 
+			  var marker = new google.maps.Marker({
+			  	position: {<?php echo'latitud:'. $latitudes[0] .', longitud:'. $longitudes[0] ;?>},
+			  	map: map,
+			  	title:"mi ubicacion",
+			  });
 
 			
-        <div class="button">
-        <div class="button">
-          <input type="submit" name="registrar_reporte" id="registrar_reporte" value="Registrar"/>
-        </div>
-        
-        </div>
-        </form>
-			</div>
-		</div>
-	</main>
-  <?
-var $latitud;
-var $longitud;
+		
+			}
 
+			google.maps.event.addDomListener(window, 'load', initialize);
+    	</script>
 
+    	<!--remenber to put your google map key-->
+	    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-dFHYjTqEVLndbN2gdvXsx09jfJHmNc8&callback=initMap"></script>
 
-?>
-
-
-	<script>
-  
-const funcionInit = () => {
-	if (!"geolocation" in navigator) {
-		return alert("Tu navegador no soporta el acceso a la ubicación. Intenta con otro");
-	}
-
-	const $latitud = document.querySelector("#latitud"),
-		$longitud = document.querySelector("#longitud"),
-		$enlace = document.querySelector("#enlace");
-
-
-	const onUbicacionConcedida = ubicacion => {
-		console.log("Tengo la ubicación: ", ubicacion);
-		const coordenadas = ubicacion.coords;
-		$latitud.innerText = coordenadas.latitude;
-		$longitud.innerText = coordenadas.longitude;
-	
-	}
-	const onErrorDeUbicacion = err => {
-
-		$latitud.innerText = "Error obteniendo ubicación: " + err.message;
-		$longitud.innerText = "Error obteniendo ubicación: " + err.message;
-		console.log("Error obteniendo ubicación: ", err);
-	}
-
-	const opcionesDeSolicitud = {
-		enableHighAccuracy: true, // Alta precisión
-		maximumAge: 0, // No queremos caché
-		timeout: 5000 // Esperar solo 5 segundos
-	};
-
-	$latitud.innerText = "Cargando...";
-	$longitud.innerText = "Cargando...";
-	navigator.geolocation.getCurrentPosition(onUbicacionConcedida, onErrorDeUbicacion, opcionesDeSolicitud);
-
-};
-
-document.addEventListener("DOMContentLoaded", funcionInit);
-</script>
-
-</body>
-
+	</body>
 </html>
