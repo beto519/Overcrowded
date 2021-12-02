@@ -31,7 +31,7 @@ $userData= mysqli_fetch_assoc($resQueryUserData);
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+<link rel="stylesheet" href="css/mensajes.css">
 <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200&display=swap" rel="stylesheet">
 <script type="text/javascript">
     function ajax() {
@@ -54,7 +54,37 @@ setInterval(function(){ajax();},1000);
 
 <body onLoad= "ajax();">
 
+<div>
+        <div class="header-blue">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                <div class="container"><a class="navbar-brand" href="index.php"><img class= "img_tamaño" src="img/logo_prueba.png" alt=""></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse"
+                        id="navcol-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Menu</a></li>
+                           
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="mapa.php">Mapa</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="mensajes.php">Mensajes</a></li>
+                        </ul>
+                        <form class="form-inline mr-auto" target="_self">
+                        <?php
 
+               
+
+
+?>
+                        </form><span class="navbar-text"> <a class="btn btn-#890a3d action-button" role="button" href="includes/cerrarSesion.php">Cerrar sesión</a></div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
       
 <div id= "container">
