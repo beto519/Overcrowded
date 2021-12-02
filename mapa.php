@@ -22,7 +22,6 @@
 	}
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head> 
@@ -35,6 +34,7 @@
 	<script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqVwIR2LNGqiYsdV-rVNB5Kh3lM0dWYAM&callback=initMap">
     </script>
+
 		<div id ="map"> </div> 
 	<script>
       var map;
@@ -42,15 +42,13 @@
 		
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
-		center: {<?php echo'lat:'. $latitudes[0] .', lng:'. $longitudes[0] ;?>}, //{lat: --- , lng: ....}
-		 mapTypeId: google.maps.MapTypeId.SATELITE
+		  center: {<?php echo'lat:'. $latitudes[0] .', lng:'. $longitudes[0] ;?>}, //{lat: --- , lng: ....}
+			    mapTypeId: google.maps.MapTypeId.SATELITE
         });
-         
 		
-		startPoint = {<?php echo'latitud:'. $latitudes[0] .', longitud:'. $longitudes[0] ;?>};
-		
+	
 		var marker = new google.maps.Marker({
-          position:  startPoint,
+          position:  {<?php echo'latitud:'. $latitudes[0] .', longitud:'. $longitudes[0] ;?>},
           map: map,
 	  title: 'Mi ubicacion'
         });
@@ -58,4 +56,3 @@
 	</script>
 	</body> 
 </html>
-    </script>
