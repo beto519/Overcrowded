@@ -1,3 +1,23 @@
+<?php
+include("conexionBD/conexion.php");
+
+
+  // Inicializamos la sesion o la retomamos
+  if(!isset($_SESSION)) {
+    session_start();
+  }
+  if(!isset($_SESSION['id'])) header('Location: login.php');
+
+  $query_userData = sprintf("SELECT * FROM usuarios WHERE idusuario =%d",
+  mysqli_real_escape_string($connLocalhost, trim($_SESSION['id']))
+  );
+  
+  $resQueryUserData = mysqli_query($connLocalhost, $query_userData) or trigger_error("El query para obtener los detalles del usuario loggeado falló");
+  
+  $userData= mysqli_fetch_assoc($resQueryUserData);
+  
+?>
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -13,20 +33,50 @@
     <title>Mapa</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<link rel="stylesheet" href="css/styleindex.css">
     <style type="text/css">
       #mapa {
             height: 80vh;
       }
-      .h2s {
-        font-size: 3vh;
-      }
+     
     </style>          
 
   </head>
 
   <body> 
+  <div>
+        <div class="header-blue">
+            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
+                <div class="container"><a class="navbar-brand" href="index.php"><img class= "img_tamaño" src="img/logo_prueba.png" alt=""></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse"
+                        id="navcol-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Menu</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Reportes </a>
+                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="formulario.php">Generar reporte</a><a class="dropdown-item" role="presentation" href="visualizarReportes.php">Visualizar reportes</a></div>
+                            </li>
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="mapa.php">Mapa</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="mensajes.php">Mensajes</a></li>
+                        </ul>
+                        <form class="form-inline mr-auto" target="_self">
+                        <?php
 
+               
+
+
+?>
+                        </form><span class="navbar-text"> <a class="btn btn-light action-button" role="button" href="includes/cerrarSesion.php">Cerrar sesión</a></div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
     <header>
      
     </header>
@@ -158,3 +208,5 @@
     
   </body>
 </html>
+
+
