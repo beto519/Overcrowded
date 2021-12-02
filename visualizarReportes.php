@@ -53,7 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>  
     <div class="movimiento">
     <table class="table">
-  <thead class="columna">
+  <thead class="columnas">
     <tr>
       <th scope="col"></th>
       <th scope="col">Concepto</th>
