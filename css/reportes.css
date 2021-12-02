@@ -213,10 +213,10 @@ header-blue {
   } 
 
   .movimiento{
-    margin-top: -40px;
+    margin-top: -150px;
     z-index: 3;
 }
-.columna{
+.columnas{
  background-color: #9c9c9c;
  border-radius: 2px;
 }
