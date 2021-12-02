@@ -1,67 +1,33 @@
-<?php
-	/* Database connection settings */
-	$host = 'bowgqfdjymwtjrai1vil-mysql.services.clever-cloud.com';
-	$user = 'uqqpgtuobtnpuiii';
-	$pass = 'zqbdbi78oaeWDbHAHcHs';
-	$db = 'bowgqfdjymwtjrai1vil';
-	$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
-
- 	$coordinates = array();
- 	$latitudes = array();
- 	$longitudes = array();
-
-	// Select all the rows in the markers table
-	$query = "SELECT  `latitud`, `longitud` FROM `marcadores` ";
-	$result = $mysqli->query($query) or die('data selection for google map failed: ' . $mysqli->error);
-
- 	while ($row = mysqli_fetch_array($result)) {
-
-		$latitudes[] = $row['latitud'];
-		$longitudes[] = $row['longitud'];
-		$coordinates[] = 'new google.maps.LatLng(' . $row['latitud'] .','. $row['longitud'] .'),';
-	}
-
-	//remove the comaa ',' from last coordinate
-	$lastcount = count($coordinates)-1;
-	$coordinates[$lastcount] = trim($coordinates[$lastcount], ",");	
-?>
 
 <!DOCTYPE html>
 <html>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
 	<link rel="stylesheet" href="css/mapa.css">
-    <title>Mapa</title> 
-	<head>
-
-		<div id="map" ></div>
-
-		<script>
-			function initMap() {
-			  var mapOptions = {
-			    zoom: 18,
-			    center: {<?php echo'lat:'. $latitudes[0] .', lng:'. $longitudes[0] ;?>}, //{lat: --- , lng: ....}
-			    mapTypeId: google.maps.MapTypeId.SATELITE
-			  };
-
-			  var map = new google.maps.Map(document.getElementById('map'),mapOptions);
-
-			 
-			  var marker = new google.maps.Marker({
-			  	position: {<?php echo'latitud:'. $latitudes[0] .', longitud:'. $longitudes[0] ;?>},
-			  	map: map,
-			  	title:"mi ubicacion",
-			  });
-
-			
+    <title>Maps JavaScript API</title> 
+</head>  
+<body>
+	<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqVwIR2LNGqiYsdV-rVNB5Kh3lM0dWYAM&callback=initMap">
+    </script>
+		<div id ="map"> </div> 
+	<script>
+      var map;
+      function initMap() {
 		
-			}
-
-			google.maps.event.addDomListener(window, 'load', initialize);
-    	</script>
-
-    	<!--remenber to put your google map key-->
-	    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-dFHYjTqEVLndbN2gdvXsx09jfJHmNc8&callback=initMap"></script>
-
-	</body>
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 28.006381, lng: -110.921847},
+          zoom: 13
+        });
+         
+		var marker = new google.maps.Marker({
+          position:  {lat: 28.006381, lng: -110.921847},
+          map: map,
+	  title: 'Mi ubicacion'
+        });
+      }
+	</script>
+	</body> 
 </html>
+    </script>
