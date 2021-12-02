@@ -55,7 +55,7 @@
     <table class="table">
   <thead class="columna">
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col"></th>
       <th scope="col">Concepto</th>
       <th scope="col">Descripcion</th>
       <th scope="col">fecha</th>
@@ -70,7 +70,7 @@
 
   <tbody>
     <tr>
-      <th><?php echo $row['idreportes'];?></th>
+      <th></th>
       <td><?php echo $row['concepto'];?></td>
       <td><?php echo $row['descripcion'];?></td>
       <td><?php echo $row['fecha'];?></td>
