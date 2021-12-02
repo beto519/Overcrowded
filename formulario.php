@@ -70,7 +70,7 @@
   <link rel="stylesheet" href="css/formulario.css">
   <link rel="stylesheet" href="css/styleindex.css">
 
-  <title>Document</title>
+  <title>Generar Reporte</title>
 </head>
 <head>
 <meta charset="utf-8">

@@ -26,8 +26,6 @@ include("conexionBD/conexion.php");
     
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="http://nubecolectiva.com/favicon.ico" />
-
     <meta name="theme-color" content="#000000" />
 
     <title>Mapa</title>
