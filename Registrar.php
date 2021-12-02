@@ -86,7 +86,7 @@ include("conexionBD/conexion.php");
         <div class="button">
           <input type="submit" name="registrar_send" value="Registrar"/>
         </div>
-        <div class="text-info">
+        <div class="link_login">
         <a href="login.php" class="h5">¿Ya tienes una cuenta?</a>
         </div>
   </div>
